@@ -1,5 +1,6 @@
 package com.abhijeetsingh.utility;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.lang.NonNull;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,17 +9,42 @@ import java.sql.Statement;
 
 public class JDBCConnection {
 
-    @Value("${JDBC_DRIVER}")
+    //@Value("${JDBC_DRIVER}")
     private String driver;
 
-    @Value("${JDBC_URL}")
+    //@Value("${JDBC_URL}")
     private String url;
 
-    @Value("${JDBC_USERNAME}")
+    //@Value("${JDBC_USERNAME}")
     private String username;
 
-    @Value("${JDBC_PASSWORD}")
+    //@Value("${JDBC_PASSWORD}")
     private String password;
+
+
+    @Value("${JDBC_DRIVER}")
+    @NonNull
+    public void setDriver(String driver) {
+        this.driver = driver;
+    }
+
+    @Value("${JDBC_URL}")
+    @NonNull
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    @Value("${JDBC_USERNAME}")
+    @NonNull
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    @Value("${JDBC_PASSWORD}")
+    @NonNull
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public void display() {
         System.out.println("DRIVER : " + this.driver);

@@ -81,3 +81,30 @@ public class JDBCConnection {
 
 }
 ```
+
+-**@Value** can be used for setter and constructor injection. **@NotNull** annotation can be used to force _Required (deprecated)_
+```java
+    @Value("${JDBC_DRIVER}")
+    @NonNull
+    public void setDriver(String driver) {
+        this.driver = driver;
+    }
+
+    @Value("${JDBC_URL}")
+    @NonNull
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    @Value("${JDBC_USERNAME}")
+    @NonNull
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    @Value("${JDBC_PASSWORD}")
+    @NonNull
+    public void setPassword(String password) {
+        this.password = password;
+    }
+```
